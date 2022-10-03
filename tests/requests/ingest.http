@@ -1,0 +1,24 @@
+POST http://localhost:3000/ingest
+Content-Type: application/json
+
+[{
+  "name":"L6-43",
+  "q":175.2,
+  "dt":"2022-10-02T22:05:00.000Z"
+},{
+  "name":"L5-41",
+  "q":179.2,
+  "dt":"2022-10-02T22:06:00.000Z"
+}]
+
+###
+GET http://localhost:3000/pull
+Content-Type: application/json
+
+###
+POST http://localhost:3000/reset
+Content-Type: application/json
+
+###
+GET http://localhost:3000/latest?q=20
+Content-Type: application/json
