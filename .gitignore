@@ -2,3 +2,4 @@ node_modules
 lib/.DS_Store
 data/data-fountains.db
 .DS_Store
+tests/requests/ingest.prod.http
