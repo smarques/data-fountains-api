@@ -61,8 +61,9 @@ app.post("/reset", (req, res) => {
   }
 });
 app.get("/pull", (req, res) => {
+  const q = req.query.dt || null;
   try {
-    const newRecord = stats.getLatestNormalizedValues();
+    const newRecord = stats.getLatestNormalizedValues(q);
     res.json({
       success: true,
       newRecord,

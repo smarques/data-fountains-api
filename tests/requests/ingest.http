@@ -16,6 +16,11 @@ GET http://localhost:3000/pull
 Content-Type: application/json
 
 ###
+GET http://localhost:3000/pull?dt=2022-10-02T22:10:00.000Z
+Content-Type: application/json
+
+
+###
 POST http://localhost:3000/reset
 Content-Type: application/json
 
