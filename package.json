@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/cyclic-software/starter-express-api#readme",
   "dependencies": {
+    "@json2csv/node": "^6.1.2",
     "better-sqlite3": "^7.6.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",

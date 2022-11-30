@@ -27,3 +27,11 @@ Content-Type: application/json
 ###
 GET http://localhost:3000/latest?q=20
 Content-Type: application/json
+
+###
+GET http://localhost:3000/csv-entries
+Content-Type: application/json
+
+###
+GET http://localhost:3000/csv-avg
+Content-Type: application/json

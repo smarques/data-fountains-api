@@ -3,6 +3,8 @@ var cors = require("cors");
 const ingestor = require("./lib/ingestion");
 const db = require("./lib/db");
 const stats = require("./lib/stats");
+const { AsyncParser } = require('@json2csv/node');
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -91,6 +93,44 @@ app.get("/latest", (req, res) => {
           error: error,
         });
       }
+})
+app.get("/csv-entries", async (req, res) => {
+  try {
+      const records = db.getAllData();
+     
+      // const opts = {};
+      // const transformOpts = {};
+      // const asyncOpts = {};
+      const parser = new AsyncParser();
+
+      const csv = await parser.parse(records).promise();
+      res.send(csv);
+
+    } catch (error) {
+      res.status(401).send({
+        success: false,
+        error: error,
+      });
+    }
+})
+app.get("/csv-avg", async (req, res) => {
+  try {
+      const records = db.getAverages();
+     
+      // const opts = {};
+      // const transformOpts = {};
+      // const asyncOpts = {};
+      const parser = new AsyncParser();
+
+      const csv = await parser.parse(records).promise();
+      res.send(csv);
+
+    } catch (error) {
+      res.status(401).send({
+        success: false,
+        error: error,
+      });
+    }
 })
 // app.all('/', (req, res) => {
 //     console.log("Just got sa request!")
