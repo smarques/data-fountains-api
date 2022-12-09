@@ -62,10 +62,46 @@ app.post("/reset", (req, res) => {
     });
   }
 });
+app.post("/clear-pos", (req, res) => {
+  const pos = req.query.pos || null;
+  if(pos){
+    try {
+      db.clearPos(pos);
+      res.json({
+          success: true
+        });
+    } catch (error) {
+      res.status(401).send({
+        success: false,
+        error: error,
+      });
+    }
+  } else {
+    res.status(401).send({
+      success: false,
+      error: 'no pos specified',
+    });
+  }
+});
 app.get("/pull", (req, res) => {
   const q = req.query.dt || null;
   try {
     const newRecord = stats.getLatestNormalizedValues(q);
+    res.json({
+      success: true,
+      newRecord,
+    });
+  } catch (error) {
+    res.status(401).send({
+      success: false,
+      error: error,
+    });
+  }
+});
+app.get("/pull-abs", (req, res) => {
+  const q = req.query.dt || null;
+  try {
+    const newRecord = stats.getLatestAbsValues(q);
     res.json({
       success: true,
       newRecord,
@@ -86,7 +122,7 @@ app.get("/latest", (req, res) => {
           records,
         });
 
-        console.log(records);
+        //console.log(records);
       } catch (error) {
         res.status(401).send({
           success: false,
