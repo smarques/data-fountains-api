@@ -31,6 +31,7 @@ app.post("/ingest", (req, res) => {
       return;
     }
   }
+  db.reset();
   for (entry of data) {
     try {
       ingestor.ingest(entry);
@@ -86,7 +87,8 @@ app.post("/clear-pos", (req, res) => {
 app.get("/pull", (req, res) => {
   const q = req.query.dt || null;
   try {
-    const newRecord = stats.getLatestNormalizedValues(q);
+    // const newRecord = stats.getLatestNormalizedValues(q);
+    const newRecord = stats.getLatestAbsValues(q);
     res.json({
       success: true,
       newRecord,
