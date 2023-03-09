@@ -47,3 +47,9 @@ Content-Type: application/json
 ###
 GET http://localhost:3000/csv-avg
 Content-Type: application/json
+
+###
+POST http://localhost:3000/ingest
+Content-Type: application/json
+
+[{"name":"L5-0035","q":2.0,"dt":"2023-03-09T17:15:00.797","quality":63.0},{"name":"L5-9999","q":1.0,"dt":"2023-03-09T17:15:00.797","quality":96.0},{"name":"L6-0035","q":10.0,"dt":"2023-03-09T17:15:00.797","quality":84.0},{"name":"L6-9999","q":0.0,"dt":"2023-03-09T17:15:00.797","quality":100.0}]
