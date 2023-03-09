@@ -85,7 +85,7 @@ app.post("/clear-pos", (req, res) => {
   }
 });
 app.get("/pull", (req, res) => {
-  const q = req.query.dt || null;
+  const q = null; //req.query.dt ||
   try {
     // const newRecord = stats.getLatestNormalizedValues(q);
     const newRecord = stats.getLatestAbsValues(q);

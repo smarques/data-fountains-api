@@ -3,3 +3,4 @@ lib/.DS_Store
 data/data-fountains.db
 .DS_Store
 tests/requests/ingest.prod.http
+data/data-fountains.bu.db
